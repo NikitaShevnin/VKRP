@@ -2,12 +2,13 @@ package ru.gb.vkr.vkrProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class VkrProjectApplication {
-
+@ComponentScan(basePackages = "com.example.vkrp")
+public class VkrpApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(VkrProjectApplication.class, args);
+		SpringApplication.run(VkrpApplication.class, args);
 	}
-
 }
+

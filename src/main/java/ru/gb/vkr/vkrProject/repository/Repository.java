@@ -1,6 +1,8 @@
 package ru.gb.vkr.vkrProject.repository;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
