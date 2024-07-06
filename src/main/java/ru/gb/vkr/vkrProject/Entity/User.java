@@ -16,14 +16,17 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String Username;
 
-    public User() {
+    public User(String username) {
+        Username = username;
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, String username) {
         this.name = name;
         this.email = email;
         this.password = password;
+        Username = username;
     }
 
     public Long getId() {
@@ -57,6 +60,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
 }
-
-
