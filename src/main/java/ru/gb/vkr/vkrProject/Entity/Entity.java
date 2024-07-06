@@ -1,10 +1,10 @@
 package ru.gb.vkr.vkrProject.Entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
+@javax.persistence.Entity
 public class Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
