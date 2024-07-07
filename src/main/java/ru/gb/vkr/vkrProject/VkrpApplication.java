@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * Класс, отвечающий за запуск приложения.
+ */
 @SpringBootApplication
 @ComponentScan(basePackages = "com.example.vkrp")
 public class VkrpApplication {
@@ -11,4 +14,3 @@ public class VkrpApplication {
 		SpringApplication.run(VkrpApplication.class, args);
 	}
 }
-
