@@ -11,6 +11,7 @@
 	<groupId>ru.gb.vkr</groupId>
 	<artifactId>vkrProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>vkrProject</name>
 	<description>microservice architecture</description>
 	<url/>
@@ -20,6 +21,9 @@
 	<developers>
 		<developer/>
 	</developers>
+	<modules>
+		<module>eureka-server</module>
+	</modules>
 	<scm>
 		<connection/>
 		<developerConnection/>
