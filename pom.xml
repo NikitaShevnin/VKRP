@@ -16,6 +16,9 @@
 	<packaging>pom</packaging>
 	<name>vkrProject</name>
 	<description>microservice architecture</description>
+	<modules>
+		<module>API_Gateway</module>
+	</modules>
 
 	<properties>
 		<java.version>11</java.version>
