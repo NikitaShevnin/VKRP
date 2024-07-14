@@ -18,6 +18,7 @@
 	<description>microservice architecture</description>
 	<modules>
 		<module>API_Gateway</module>
+		<module>caching</module>
 	</modules>
 
 	<properties>
