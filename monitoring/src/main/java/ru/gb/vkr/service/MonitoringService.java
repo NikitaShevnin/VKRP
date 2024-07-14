@@ -1,14 +1,13 @@
 package ru.gb.vkr.service;
 
-import com.netflix.servo.Metric;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.boot.actuate.info.InfoEndpoint;
 import org.springframework.boot.actuate.metrics.MetricsEndpoint;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Service
 public class MonitoringService {
@@ -36,23 +35,14 @@ public class MonitoringService {
         return infoEndpoint.info().toString();
     }
 
-    public String getMetrics() {
-        Collection<String> metricNames = metricsEndpoint.names();
-        StringBuilder metricsData = new StringBuilder();
+    public List<MetricResponse> getMetrics() {
+        Collection<String> metricNames = metricsEndpoint.getNames();
+        List<MetricResponse> metrics = new ArrayList<>();
         for (String metricName : metricNames) {
-            Metric metric = metricsEndpoint.metric(metricName, List.of());
-            double metricValue = metric.getValue();
-            metricsData.append(metricName)
-                    .append(": ")
-                    .append(metricValue)
-                    .append("\n");
+            MetricResponse metric = metricsEndpoint.find(metricName);
+            metrics.add(metric);
         }
-        return metricsData.toString();
+        return metrics;
     }
-
-
-
-
-
 
 }

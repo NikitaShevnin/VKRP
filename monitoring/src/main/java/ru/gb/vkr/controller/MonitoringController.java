@@ -40,7 +40,7 @@ public class MonitoringController {
 
     @GetMapping("/metrics")
     public ResponseEntity<String> getMetrics() {
-        String metrics = monitoringService.getMetrics();
+        String metrics = monitoringService.getMetrics().toString();
         return new ResponseEntity<>(metrics, HttpStatus.OK);
     }
 }
