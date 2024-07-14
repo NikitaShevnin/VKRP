@@ -2,9 +2,9 @@ package ru.gb.vkr.model;
 
 public class MetricResponse {
     private final String name;
-    private final Double value;
+    private final double value;
 
-    public MetricResponse(String name, Double value) {
+    public MetricResponse(String name, double value) {
         this.name = name;
         this.value = value;
     }
@@ -13,7 +13,8 @@ public class MetricResponse {
         return name;
     }
 
-    public Double getValue() {
+    public double getValue() {
         return value;
     }
 }
+

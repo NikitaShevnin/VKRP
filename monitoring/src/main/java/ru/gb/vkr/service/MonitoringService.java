@@ -1,16 +1,20 @@
 package ru.gb.vkr.service;
 
-import java.lang.management.*;
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.OperatingSystemMXBean;
+import java.lang.management.RuntimeMXBean;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.stereotype.Service;
 import ru.gb.vkr.model.CustomMetricsEndpoint;
+import ru.gb.vkr.model.HealthStatus;
+import ru.gb.vkr.model.MemoryUsage;
 import ru.gb.vkr.model.MetricResponse;
 
 @Service

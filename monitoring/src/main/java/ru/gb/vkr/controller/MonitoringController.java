@@ -22,19 +22,19 @@ public class MonitoringController {
 
     @GetMapping("/health")
     public ResponseEntity<String> getHealthStatus() {
-        String healthStatus = monitoringService.getHealthStatus();
+        String healthStatus = String.valueOf(monitoringService.getHealthStatus());
         return new ResponseEntity<>(healthStatus, HttpStatus.OK);
     }
 
     @GetMapping("/memory")
     public ResponseEntity<String> getMemoryUsage() {
-        String memoryUsage = monitoringService.getMemoryUsage();
+        String memoryUsage = monitoringService.getMemoryUsage().toString();
         return new ResponseEntity<>(memoryUsage, HttpStatus.OK);
     }
 
     @GetMapping("/config")
     public ResponseEntity<String> getConfigurationProperties() {
-        String configProperties = monitoringService.getConfigurationProperties();
+        String configProperties = monitoringService.getConfigurationProperties().toString();
         return new ResponseEntity<>(configProperties, HttpStatus.OK);
     }
 
