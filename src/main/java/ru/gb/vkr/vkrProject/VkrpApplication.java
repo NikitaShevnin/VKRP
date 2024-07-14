@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * Класс, отвечающий за запуск приложения.
  */
+@EnableZuulProxy
 @SpringBootApplication
 @ComponentScan(basePackages = "com.example.vkrp")
 public class VkrpApplication {
