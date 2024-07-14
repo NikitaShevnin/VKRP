@@ -3,11 +3,12 @@ package ru.gb.vkr.filters;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class AuthorizationFilter extends ZuulFilter {
@@ -30,10 +31,11 @@ public class AuthorizationFilter extends ZuulFilter {
     @Override
     public Object run() throws ZuulException {
         RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
 
         // Логика авторизации
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (isUserAuthorized(authentication, ctx.getRequest())) {
+        if (isUserAuthorized(authentication, request)) {
             // Пользователь авторизован, продолжить обработку запроса
             return null;
         } else {
@@ -50,4 +52,3 @@ public class AuthorizationFilter extends ZuulFilter {
         return true;
     }
 }
-

@@ -1,27 +1,39 @@
 package ru.gb.vkr.config;
 
-import com.netflix.eureka.RateLimitingFilter;
 import com.netflix.zuul.ZuulFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
+import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.web.access.intercept.AuthorizationFilter;
-import org.springframework.security.web.authentication.AuthenticationFilter;
+import ru.gb.vkr.filters.AuthenticationFilter;
+import ru.gb.vkr.filters.AuthorizationFilter;
+import ru.gb.vkr.filters.RateLimitingFilter;
 
 @Configuration
 public class ZuulConfig {
+
+    @Autowired
+    private AuthenticationFilter authenticationFilter;
+
+    @Autowired
+    private AuthorizationFilter authorizationFilter;
+
+    @Autowired
+    private RateLimitingFilter rateLimitingFilter;
+
     @Bean
-    public ZuulFilter authenticationFilter() {
-        return new AuthenticationFilter();
+    public ZuulFilter authenticationZuulFilter() {
+        return authenticationFilter;
     }
 
     @Bean
-    public ZuulFilter authorizationFilter() {
-        return new AuthorizationFilter();
+    public ZuulFilter authorizationZuulFilter() {
+        return authorizationFilter;
     }
 
     @Bean
-    public ZuulFilter rateLimitingFilter() {
-        return new RateLimitingFilter();
+    public ZuulFilter rateLimitingZuulFilter() {
+        return rateLimitingFilter;
     }
 }
-

@@ -1,20 +1,26 @@
 package ru.gb.vkr.config;
 
 import com.netflix.client.config.IClientConfig;
-import com.netflix.loadbalancer.*;
+import com.netflix.loadbalancer.ConfigurationBasedServerList;
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RibbonConfig {
+
+    @Autowired
+    private IClientConfig clientConfig;
+
     @Bean
     public IRule ribbonRule() {
-        return new BestAvailableRule();
+        return new RandomRule();
     }
 
     @Bean
-    public ServerList<Server> ribbonServerList(IClientConfig config) {
-        return new ConfigurationBasedServerList(config);
+    public ConfigurationBasedServerList configurationBasedServerList() {
+        return new ConfigurationBasedServerList();
     }
 }
-
